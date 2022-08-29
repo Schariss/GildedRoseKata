@@ -1,3 +1,5 @@
+package com.adnane;
+
 import com.adnane.GildedRose;
 import com.adnane.Item;
 
