@@ -27,7 +27,7 @@ public class AgedBrieTest {
 
     @Test
     @DisplayName("Quality cannot go over 50")
-    void qualityCannotGoOver50() {
+    void qualityCannotGoOverFifty() {
         // Given
         Item[] items = new Item[] { new Item(AGED_BRIE, 0, 49) };
         GildedRose app = new GildedRose(items);
