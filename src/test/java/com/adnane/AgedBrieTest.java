@@ -14,7 +14,7 @@ public class AgedBrieTest {
     @DisplayName("Increases quality")
     void qualityIncreases() {
         // Given
-        Item[] items = new Item[] { new Item(AGED_BRIE, 10, 22) };
+        Item[] items = new Item[] { new Item(AGED_BRIE, 10, 22, new AgedBrieStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -29,7 +29,7 @@ public class AgedBrieTest {
     @DisplayName("Increases quality twice as fast when sell in is expired")
     public void qualityIncreasesTwiceAsFastWhenSellInIsExpired() {
         // Given
-        GildedRose app = new GildedRose(new Item[] {new Item(AGED_BRIE, 0, 5)});
+        GildedRose app = new GildedRose(new Item[] {new Item(AGED_BRIE, 0, 5, new AgedBrieStrategy())});
 
         // When
         app.updateQuality();
@@ -43,7 +43,7 @@ public class AgedBrieTest {
     @DisplayName("Quality cannot go over 50")
     void qualityCannotGoOverFifty() {
         // Given
-        Item[] items = new Item[] { new Item(AGED_BRIE, 0, 49) };
+        Item[] items = new Item[] { new Item(AGED_BRIE, 0, 49, new AgedBrieStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When

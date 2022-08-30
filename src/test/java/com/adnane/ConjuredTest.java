@@ -13,7 +13,7 @@ public class ConjuredTest {
     @DisplayName("Quality degrades twice as fast")
     void qualityDegradesTwiceAsFast() {
         // Given
-        Item[] items = new Item[] { new Item(CONJURED, 3, 5) };
+        Item[] items = new Item[] { new Item(CONJURED, 3, 5, new ConjuredStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -28,7 +28,7 @@ public class ConjuredTest {
     @DisplayName("Quality degrades twice as fast when sell in is expired")
     void qualityDegradesTwiceAsFastEvenWhenSellInIsExpired() {
         // Given
-        Item[] items = new Item[] { new Item(CONJURED, 0, 5) };
+        Item[] items = new Item[] { new Item(CONJURED, 0, 5, new ConjuredStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -43,7 +43,7 @@ public class ConjuredTest {
     @DisplayName("Quality cannot be negative")
     void qualityCannotBeNegative() {
         // Given
-        Item[] items = new Item[] { new Item(CONJURED, 0, 1) };
+        Item[] items = new Item[] { new Item(CONJURED, 0, 1, new ConjuredStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When

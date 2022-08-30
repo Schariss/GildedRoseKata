@@ -13,7 +13,7 @@ public class SulfurasTest {
     @DisplayName("Never has to be sold or decreases in Quality")
     void neverChange() {
         // Given
-        Item[] items = new Item[] { new Item(SULFURAS, 0, 49) };
+        Item[] items = new Item[] { new Item(SULFURAS, 0, 49, new SulfurasStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When

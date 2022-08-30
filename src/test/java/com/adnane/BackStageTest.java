@@ -10,10 +10,10 @@ public class BackStageTest {
     private static final String BACKSTAGE =  "Backstage passes to a TAFKAL80ETC concert";
 
     @Test
-    @DisplayName("Increases quality by one When sell in > 10 days ")
+    @DisplayName("Increases quality by one When sell is > 10 days ")
     void qualityIncreasesByOneWhenSellInIsGreaterThanTenDays() {
         // Given
-        Item[] items = new Item[] { new Item(BACKSTAGE, 11, 22) };
+        Item[] items = new Item[] { new Item(BACKSTAGE, 11, 22, new BackStageStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -25,10 +25,10 @@ public class BackStageTest {
     }
 
     @Test
-    @DisplayName("Increases quality by two When sell in <= 10 days ")
+    @DisplayName("Increases quality by two When sell is <= 10 days ")
     void qualityIncreasesByTwoWhenSellInIsLessOrEqualsTenDays() {
         // Given
-        Item[] items = new Item[] { new Item(BACKSTAGE, 10, 1) };
+        Item[] items = new Item[] { new Item(BACKSTAGE, 10, 1, new BackStageStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -40,10 +40,10 @@ public class BackStageTest {
     }
 
     @Test
-    @DisplayName("Increases quality by three When sell in <= 10 days ")
+    @DisplayName("Increases quality by three When sell is <= 5 days ")
     void qualityIncreasesByThreeWhenSellInIsLessOrEqualsFiveDays() {
         // Given
-        Item[] items = new Item[] { new Item(BACKSTAGE, 4, 1) };
+        Item[] items = new Item[] { new Item(BACKSTAGE, 4, 1, new BackStageStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -58,7 +58,7 @@ public class BackStageTest {
     @DisplayName("Quality drops to zero after the concert ")
     void qualityGoesToZeroAfterTheConcert() {
         // Given
-        Item[] items = new Item[] { new Item(BACKSTAGE, 0, 49) };
+        Item[] items = new Item[] { new Item(BACKSTAGE, 0, 49, new BackStageStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -73,7 +73,7 @@ public class BackStageTest {
     @DisplayName("Quality cannot go over 50")
     void qualityCannotGoOverFifty() {
         // Given
-        Item[] items = new Item[] { new Item(BACKSTAGE, 1, 50) };
+        Item[] items = new Item[] { new Item(BACKSTAGE, 1, 50, new BackStageStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When

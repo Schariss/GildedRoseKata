@@ -11,7 +11,7 @@ class GildedRoseTest {
     @DisplayName("Quality degrades twice as fast When the sell by date has passed")
     void qualityDegradesTwiceAsFastWhenSellInDatePass() {
         // Given
-        Item[] items = new Item[] { new Item("foo", 0, 4) };
+        Item[] items = new Item[] { new Item("foo", 0, 4, new ItemStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -29,7 +29,7 @@ class GildedRoseTest {
     @DisplayName("Quality of an item is never negative")
     void qualityCannotBeNegative() {
         // Given
-        Item[] items = new Item[] { new Item("foo", 0, 1) };
+        Item[] items = new Item[] { new Item("foo", 0, 1, new ItemStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When
@@ -44,7 +44,7 @@ class GildedRoseTest {
     @DisplayName("quality decreases")
     void qualityDecreases() {
         // Given
-        Item[] items = new Item[] { new Item("foo", 10, 22) };
+        Item[] items = new Item[] { new Item("foo", 10, 22, new ItemStrategy()) };
         GildedRose app = new GildedRose(items);
 
         // When

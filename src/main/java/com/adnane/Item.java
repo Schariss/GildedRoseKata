@@ -8,15 +8,28 @@ public class Item {
 
     public int quality;
 
+    private IQualityStrategy qualityStrategy;
+
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
     }
 
+    public Item(String name, int sellIn, int quality, IQualityStrategy qualityStrategy) {
+        this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
+        this.qualityStrategy = qualityStrategy;
+    }
+
     @Override
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
+    }
+
+    public void execute(){
+        qualityStrategy.updateQuality(this);
     }
 
 //    @Override
