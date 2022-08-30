@@ -1,7 +1,6 @@
 package com.adnane;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static com.adnane.ItemHelper.assertItemEquals;
@@ -22,6 +21,20 @@ public class AgedBrieTest {
 
         // Then
         Item item = new Item(AGED_BRIE, 9, 23);
+        assertItemEquals(item, app.getItems()[0]);
+    }
+
+    @Test
+    @DisplayName("Increases quality twice as fast when sell in is expired")
+    public void qualityIncreasesTwiceAsFastWhenSellInIsExpired() {
+        // Given
+        GildedRose app = new GildedRose(new Item[] {new Item(AGED_BRIE, 0, 5)});
+
+        // When
+        app.updateQuality();
+
+        // Then
+        Item item = new Item(AGED_BRIE, -1, 7);
         assertItemEquals(item, app.getItems()[0]);
     }
 
