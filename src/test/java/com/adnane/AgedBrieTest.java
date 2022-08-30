@@ -26,6 +26,20 @@ public class AgedBrieTest {
     }
 
     @Test
+    @DisplayName("Increases quality twice as fast when sell in is expired")
+    public void qualityIncreasesTwiceAsFastWhenSellInIsExpired() {
+        // Given
+        GildedRose app = new GildedRose(new Item[] {new Item(AGED_BRIE, 0, 5)});
+
+        // When
+        app.updateQuality();
+
+        // Then
+        Item item = new Item(AGED_BRIE, -1, 7);
+        assertItemEquals(item, app.getItems()[0]);
+    }
+
+    @Test
     @DisplayName("Quality cannot go over 50")
     void qualityCannotGoOverFifty() {
         // Given
